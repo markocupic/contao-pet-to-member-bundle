@@ -18,6 +18,7 @@ namespace Markocupic\ContaoPetToMemberBundle\Controller\FrontendModule;
 use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\Database;
+use Contao\Environment;
 use Contao\Input;
 use Contao\MemberModel;
 use Contao\ModuleModel;
@@ -59,8 +60,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
      */
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
-        $objDb = Database::getInstance()->execute('SELECT * FROM tl_member');
-        $template->members = $objDb->fetchAllAssoc();
+
 
         if (Input::get('id') && null !== ($objModel = MemberModel::findByPk(Input::get('id'))))
         {
@@ -119,12 +119,16 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
                     Controller::reload();
                 }
             }
-
             $template->user = $objModel;
-            $template->request = Url::removeQueryString(['id']);
             $template->form = $objForm->generate();
         }
 
+        // Member listing
+        $objDb = Database::getInstance()->execute('SELECT * FROM tl_member');
+        $template->members = $objDb->fetchAllAssoc();
+
+        // Request
+        $template->request = Url::removeQueryString(['id']);
 
         return $template->getResponse();
     }
