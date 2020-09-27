@@ -9,7 +9,7 @@
             <tr>
                 <td><?= $member['firstname'] ?></td>
                 <td><?= $member['lastname'] ?></td>
-                <td><a href="<?= $this->request ?>?id=<?= $member['id'] ?>" class="btn btn-primary"><?= $this->trans('MSC.pets') ?></a></td>
+                <td><a href="<?= $this->request ?>?id=<?= $member['id'] ?>" class="btn btn-primary"><?= $this->trans('MSC.APTMMC-pets') ?></a></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -17,7 +17,7 @@
 
     <div class="col-12 col-md-6">
         <?php if($this->form): ?>
-        <h3><?= $this->trans('MSC.assignPetTo') ?> <?= $this->user->firstname ?> <?= $this->user->lastname ?></h3>
+        <h3><?= $this->trans('MSC.APTMMC-assignPetTo') ?> <?= $this->user->firstname ?> <?= $this->user->lastname ?></h3>
         <?= $this->form ?>
         <?php endif; ?>
     </div>

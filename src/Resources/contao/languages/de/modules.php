@@ -15,4 +15,4 @@
 /**
 * Frontend modules
 */
-$GLOBALS['TL_LANG']['FMD']['assign_pet_to_member_module'] = ['Pet2Member Module', 'Assign pets to frontend users'];
+$GLOBALS['TL_LANG']['FMD']['assign_pet_to_member_module'] = ['Frontend-User und Haustiere', 'Ordnen Sie den Frontend-Usern Haustiere zu.'];

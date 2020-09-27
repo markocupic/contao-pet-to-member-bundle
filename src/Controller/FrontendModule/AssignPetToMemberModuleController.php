@@ -83,7 +83,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
             $blnMandatory = false;
             $objForm->addFormField('pets', [
-                'label'     => $this->translator->trans('MSC.pets', [], 'contao_default'),
+                'label'     => $this->translator->trans('MSC.APTMMC-pets', [], 'contao_default'),
                 'inputType' => 'multitext',
                 'eval'      => ['mandatory' => $blnMandatory, 'multiple' => true],
                 'value'     => $value,
@@ -91,7 +91,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
             // Let's add a submit button
             $objForm->addFormField('submit', [
-                'label'     => 'Submit form',
+                'label'     => $this->translator->trans('MSC.APTMMC-submit', [], 'contao_default'),
                 'inputType' => 'submit',
             ]);
 
@@ -104,7 +104,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
                 if ($blnMandatory && empty($objWidget->value) || !is_array($objWidget->value))
                 {
                     $blnError = true;
-                    $objWidget->addError('Please assign some pets to this user!');
+                    $objWidget->addError($this->trans('ERR.APTMMC-fillInPetInput'));
                 }
 
                 if (!$blnError)

@@ -15,7 +15,12 @@
 /**
  * Miscelaneous
  */
-$GLOBALS['TL_LANG']['MSC']['pets'] = 'Pets';
-$GLOBALS['TL_LANG']['MSC']['assignPetTo'] = 'Assign a pet to';
+$GLOBALS['TL_LANG']['MSC']['APTMMC-pets'] = 'Pets';
+$GLOBALS['TL_LANG']['MSC']['APTMMC-assignPetTo'] = 'Assign a pet to';
+$GLOBALS['TL_LANG']['MSC']['APTMMC-submit'] = 'Submit';
 
+/**
+ * Errors
+ */
+$GLOBALS['TL_LANG']['MSC']['APTMMC-fillInPetInput'] = 'Please assign a pet to the user!';
 

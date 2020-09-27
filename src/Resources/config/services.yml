@@ -5,7 +5,7 @@ services:
         arguments:
             - '@translator'
         tags:
-            - { name: contao.frontend_module, category: my_form_modules, template: mod_assign_pet_to_member_module, type: assign_pet_to_member_module }
+            - { name: contao.frontend_module, category: user, template: mod_assign_pet_to_member_module, type: assign_pet_to_member_module }
             - { name: container.service_subscriber }
         public: true
 
