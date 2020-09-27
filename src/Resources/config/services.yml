@@ -1,0 +1,12 @@
+services:
+
+    # Contao frontend module Markocupic\ContaoPetToMemberBundle\Controller\FrontendModule\AssignPetToMemberModuleController
+    Markocupic\ContaoPetToMemberBundle\Controller\FrontendModule\AssignPetToMemberModuleController:
+        arguments:
+            - '@translator'
+        tags:
+            - { name: contao.frontend_module, category: my_form_modules, template: mod_assign_pet_to_member_module, type: assign_pet_to_member_module }
+            - { name: container.service_subscriber }
+        public: true
+
+

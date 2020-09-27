@@ -1,0 +1,57 @@
+{
+  "name": "markocupic/contao-pet-to-member-bundle",
+  "description": "Contao frontend testing module: add pets to frontend users.",
+  "keywords": [
+    "contao",
+    "bundle",
+    "users",
+    "frontend",
+    "pets"
+  ],
+  "type": "contao-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Cupic",
+      "email": "m.cupic@gmx.ch",
+      "homepage": "https://github.com/markocupic",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/markocupic/contao-pet-to-member-bundle/issues",
+    "source": "https://github.com/markocupic/contao-pet-to-member-bundle"
+  },
+  "require": {
+    "contao/core-bundle": "^4.9",
+    "codefog/contao-haste": "^4.24",
+    "menatwork/contao-multicolumnwizard": "^3.4",
+    "markocupic/form-multitextfield-bundle": "^1.0"
+  },
+  "require-dev": {
+    "contao/test-case": "^4.0",
+    "contao/php-cs-fixer": "^2.2",
+    "contao/manager-plugin": "^2.3",
+    "phpunit/phpunit": "^8.4",
+    "symfony/http-client": "4.4.*",
+    "symfony/phpunit-bridge": "4.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Markocupic\\ContaoPetToMemberBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config",
+      "src/Resources/contao/dca",
+      "src/Resources/contao/languages",
+      "src/Resources/contao/templates"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Markocupic\\ContaoPetToMemberBundle\\ContaoManager\\Plugin"
+  }
+
+}

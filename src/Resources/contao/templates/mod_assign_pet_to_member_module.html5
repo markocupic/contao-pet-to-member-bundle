@@ -1,0 +1,27 @@
+<?php $this->extend("block_searchable"); ?>
+
+<?php $this->block("content"); ?>
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <table class="table">
+            <?php foreach($this->members as $member): ?>
+            <tr>
+                <td><?= $member['firstname'] ?></td>
+                <td><?= $member['lastname'] ?></td>
+                <td><a href="<?= $this->request ?>?id=<?= $member['id'] ?>" class="btn btn-primary"><?= $this->trans('MSC.pets') ?></a></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+
+    <div class="col-12 col-md-6">
+        <?php if($this->form): ?>
+        <h3><?= $this->trans('MSC.assignPetTo') ?> <?= $this->user->firstname ?> <?= $this->user->lastname ?></h3>
+        <?= $this->form ?>
+        <?php endif; ?>
+    </div>
+
+</div>
+
+<?php $this->endblock(); ?>
