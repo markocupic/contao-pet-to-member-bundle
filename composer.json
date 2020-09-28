@@ -8,7 +8,7 @@
     "frontend",
     "pets"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "contao-bundle",
   "license": "MIT",
   "authors": [
@@ -27,7 +27,7 @@
     "contao/core-bundle": "^4.9",
     "codefog/contao-haste": "^4.24",
     "menatwork/contao-multicolumnwizard": "^3.3",
-    "markocupic/form-multitextfield-bundle": "^1.0"
+    "markocupic/contao-form-multirow-text-field-bundle": "^1.0"
   },
   "require-dev": {
     "contao/test-case": "^4.0",

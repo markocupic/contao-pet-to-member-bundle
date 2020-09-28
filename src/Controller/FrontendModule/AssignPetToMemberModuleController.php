@@ -84,7 +84,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
             $blnMandatory = false;
             $objForm->addFormField('pets', [
                 'label'     => $this->translator->trans('MSC.APTMMC-pets', [], 'contao_default'),
-                'inputType' => 'multitext',
+                'inputType' => 'multirowText',
                 'eval'      => ['mandatory' => $blnMandatory, 'multiple' => true],
                 'value'     => $value,
             ]);
