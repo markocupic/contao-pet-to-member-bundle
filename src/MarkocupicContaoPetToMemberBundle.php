@@ -1,26 +1,21 @@
 <?php
 
-/**
- * This file is part of a markocupic Contao Bundle.
- *
- * (c) Marko Cupic 2020 <m.cupic@gmx.ch>
- * @author     Marko Cupic
- * @package    Formulartest
- * @license    MIT
- * @see        https://github.com/markocupic/contao-pet-to-member-bundle
- *
- */
-
 declare(strict_types=1);
+
+/*
+ * This file is part of Contao.
+ *
+ * (c) Leo Feyer
+ *
+ * @license LGPL-3.0-or-later
+ */
 
 namespace Markocupic\ContaoPetToMemberBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class MarkocupicContaoPetToMemberBundle
- *
- * @package Markocupic\ContaoPetToMemberBundle
+ * Class MarkocupicContaoPetToMemberBundle.
  */
 class MarkocupicContaoPetToMemberBundle extends Bundle
 {

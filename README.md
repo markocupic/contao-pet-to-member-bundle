@@ -2,6 +2,6 @@
 
 
 # Welcome to the contao-pet-to-member-bundle
-This bundle is for testing purposes only and requires [markocupic/form-multitextfield-bundle](https://github.com/markocupic/form-multitextfield-bundle). 
+This bundle is for testing purposes only and requires [markocupic/contao-form-multirow-text-field-bundle](https://github.com/markocupic/contao-form-multirow-text-field-bundle). 
 
 ![Alt text](src/Resources/public/img/screenshot.png?raw=true "screenshot")

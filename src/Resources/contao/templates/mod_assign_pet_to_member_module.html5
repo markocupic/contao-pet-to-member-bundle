@@ -1,11 +1,11 @@
-<?php $this->extend("block_searchable"); ?>
+<?php $this->extend('block_searchable'); ?>
 
-<?php $this->block("content"); ?>
+<?php $this->block('content'); ?>
 
 <div class="row">
     <div class="col-12 col-md-6">
         <table class="table">
-            <?php foreach($this->members as $member): ?>
+            <?php foreach ($this->members as $member): ?>
             <tr>
                 <td><?= $member['firstname'] ?></td>
                 <td><?= $member['lastname'] ?></td>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-12 col-md-6">
-        <?php if($this->form): ?>
+        <?php if ($this->form): ?>
         <h3><?= $this->trans('MSC.APTMMC-assignPetTo') ?> <?= $this->user->firstname ?> <?= $this->user->lastname ?></h3>
         <?= $this->form ?>
         <?php endif; ?>

@@ -1,17 +1,14 @@
 <?php
 
-/**
- * This file is part of a markocupic Contao Bundle.
- *
- * (c) Marko Cupic 2020 <m.cupic@gmx.ch>
- * @author     Marko Cupic
- * @package    Formulartest
- * @license    MIT
- * @see        https://github.com/markocupic/contao-pet-to-member-bundle
- *
- */
-
 declare(strict_types=1);
+
+/*
+ * This file is part of Contao.
+ *
+ * (c) Leo Feyer
+ *
+ * @license LGPL-3.0-or-later
+ */
 
 namespace Markocupic\ContaoPetToMemberBundle\DependencyInjection;
 
@@ -21,24 +18,18 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
- * Class MarkocupicContaoPetToMemberExtension
- *
- * @package Markocupic\ContaoPetToMemberBundle\DependencyInjection
+ * Class MarkocupicContaoPetToMemberExtension.
  */
 class MarkocupicContaoPetToMemberExtension extends Extension
 {
-
     /**
-     * @param array $configs
-     * @param ContainerBuilder $container
      * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__.'/../Resources/config')
         );
 
         $loader->load('parameters.yml');

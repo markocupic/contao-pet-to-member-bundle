@@ -30,8 +30,8 @@
     "markocupic/contao-form-multirow-text-field-bundle": "^1.0"
   },
   "require-dev": {
+    "contao/easy-coding-standard": "^2.0",
     "contao/test-case": "^4.0",
-    "contao/php-cs-fixer": "^2.2",
     "contao/manager-plugin": "^2.3",
     "phpunit/phpunit": "^8.4",
     "symfony/http-client": "4.4.*",

@@ -12,6 +12,44 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  coding-style:
+    name: Coding Style
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.3
+          extensions: dom, fileinfo, filter, gd, hash, intl, json, mbstring, pcre, pdo, zlib
+          tools: prestissimo, flex
+          coverage: none
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install the dependencies
+        run: composer install --no-interaction --no-suggest
+
+      - name: Check the coding style
+        run: |
+          vendor/bin/ecs check *-bundle/src vendor/contao-pet-to-member-bundle/tests --config vendor/contao/easy-coding-standard/config/default.yaml --no-progress-bar --ansi
+          vendor/bin/ecs check *-bundle/src/Resources/contao --config vendor/contao/easy-coding-standard/config/legacy.yaml --no-progress-bar --ansi
+          vendor/bin/ecs check *-bundle/src/Resources/contao/templates --config vendor/contao/easy-coding-standard/config/template.yaml --no-progress-bar --ansi
+      - name: Analyze the code
+        run: |
+          vendor/bin/phpstan analyse contao-pet-to-member-bundle/src contao-pet-to-member-bundle/tests --level=5 --no-progress
+          vendor/bin/psalm --no-suggestions --threads=4 --no-progress
+      - name: Analyze the YAML files
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install --upgrade yamllint
+          /home/runner/.local/bin/yamllint .
+
+
+
+
+
   tests:
     name: PHP ${{ matrix.php }}
     runs-on: ubuntu-latest
