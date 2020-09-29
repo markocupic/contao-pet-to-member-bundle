@@ -88,11 +88,14 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
             // Save input
             if ($objForm->validate()) {
+
+                /** @var FormMultirowTextField $objWidget */
                 $objWidget = $objForm->getWidget('pets');
 
+                $blnError = false;
                 if ($blnMandatory && empty($objWidget->value) || !\is_array($objWidget->value)) {
                     $blnError = true;
-                    $objWidget->addError($this->trans('ERR.APTMMC-fillInPetInput'));
+                    $objWidget->addError($this->translator->trans('ERR.APTMMC-fillInPetInput'));
                 }
 
                 if (!$blnError) {
