@@ -33,9 +33,9 @@ jobs:
 
       - name: Check the coding style
         run: |
-          vendor/bin/ecs check vendor/contao-pet-to-member-bundle/src vendor/contao-pet-to-member-bundle/tests --config vendor/contao/easy-coding-standard/config/default.yaml --no-progress-bar --ansi
-          vendor/bin/ecs check vendor/contao-pet-to-member-bundle/src/Resources/contao --config vendor/contao/easy-coding-standard/config/legacy.yaml --no-progress-bar --ansi
-          vendor/bin/ecs check vendor/contao-pet-to-member-bundle/src/Resources/contao/templates --config vendor/contao/easy-coding-standard/config/template.yaml --no-progress-bar --ansi
+          vendor/bin/ecs check vendor/markocupic/contao-pet-to-member-bundle/src vendor/markocupic/contao-pet-to-member-bundle/tests --config vendor/contao/easy-coding-standard/config/default.yaml --no-progress-bar --ansi
+          vendor/bin/ecs check vendor/markocupic/contao-pet-to-member-bundle/src/Resources/contao --config vendor/contao/easy-coding-standard/config/legacy.yaml --no-progress-bar --ansi
+          vendor/bin/ecs check vendor/markocupic/contao-pet-to-member-bundle/src/Resources/contao/templates --config vendor/contao/easy-coding-standard/config/template.yaml --no-progress-bar --ansi
       - name: Analyze the code
         run: |
           vendor/bin/phpstan analyse contao-pet-to-member-bundle/src contao-pet-to-member-bundle/tests --level=5 --no-progress
