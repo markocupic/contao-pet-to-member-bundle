@@ -37,13 +37,11 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
      * @var ContaoFramework
      */
     private $framework;
-    
+
     /**
      * @var TranslatorInterface
      */
     private $translator;
-
-
 
     /**
      * AssignPetToMemberModuleController constructor.
