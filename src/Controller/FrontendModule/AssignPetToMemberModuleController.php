@@ -94,7 +94,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
                 $blnError = false;
 
-                if ($blnMandatory && empty($objWidget->value) || !\is_array($objWidget->value)) {
+                if (true === $blnMandatory && true === empty($objWidget->value) || false === \is_array($objWidget->value)) {
                     $blnError = true;
                     $objWidget->addError($this->translator->trans('ERR.APTMMC-fillInPetInput'));
                 }
