@@ -22,6 +22,7 @@ use Contao\StringUtil;
 use Contao\Template;
 use Haste\Form\Form;
 use Haste\Util\Url;
+use Markocupic\ContaoFormMultirowTextFieldBundle\Forms\FormMultirowTextField;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
