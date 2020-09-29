@@ -16,7 +16,6 @@ use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\Database;
-use Contao\Input;
 use Contao\MemberModel;
 use Contao\ModuleModel;
 use Contao\StringUtil;
@@ -33,10 +32,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 {
-    /**
-     * @var ContaoFramework
-     */
-    private $framework;
+
 
     /**
      * @var TranslatorInterface
@@ -46,18 +42,15 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
     /**
      * AssignPetToMemberModuleController constructor.
      */
-    public function __construct(ContaoFramework $framework, TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator)
     {
-        $this->framework = $framework;
         $this->translator = $translator;
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
-        /** @var MemberModel $memberModelAdapter */
-        $memberModelAdapter = $this->framework->getAdapter(MemberModel::class);
 
-        if (Input::get('id') && null !== ($objModel = $memberModelAdapter->findByPk(Input::get('id')))) {
+        if ($request->query->has('id') && null !== ($objModel = MemberModel::findByPk($request->query->get('id')))) {
             // Prepare serialized string from multicolumn wizard field
             // to a default array => ['dog','cat','donkey']
             $value = [];
@@ -77,7 +70,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
                 'pets_form',
                 'POST',
                 static function ($objHaste) {
-                    return Input::post('FORM_SUBMIT') === $objHaste->getFormId();
+                    return $_POST['FORM_SUBMIT'] === $objHaste->getFormId();
                 }
             );
 
@@ -102,8 +95,11 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
                 /** @var FormMultirowTextField $objWidget */
                 $objWidget = $objForm->getWidget('pets');
 
-                $blnError = false;
+                // Remove empty values
+                $objWidget->value = array_filter($objWidget->value);
 
+                $blnError = false;
+                // $objWidget->value will always be at least an empty array
                 if (($blnMandatory && empty($objWidget->value)) || !\is_array($objWidget->value)) {
                     $blnError = true;
                     $objWidget->addError($this->translator->trans('ERR.APTMMC-fillInPetInput'));
