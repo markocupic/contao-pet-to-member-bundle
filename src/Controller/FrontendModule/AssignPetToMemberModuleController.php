@@ -54,10 +54,10 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
-        /** @var MemberModel $memberModel */
-        $memberModel = $this->framework->getAdapter(MemberModel::class);
+        /** @var MemberModel $memberModelAdapter */
+        $memberModelAdapter = $this->framework->getAdapter(MemberModel::class);
 
-        if (Input::get('id') && null !== ($objModel = $memberModel->findByPk(Input::get('id')))) {
+        if (Input::get('id') && null !== ($objModel = $memberModelAdapter->findByPk(Input::get('id')))) {
             // Prepare serialized string from multicolumn wizard field
             // to a default array => ['dog','cat','donkey']
             $value = [];
@@ -104,7 +104,7 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
                 $blnError = false;
 
-                if (true === $blnMandatory && true === empty($objWidget->value) || false === \is_array($objWidget->value)) {
+                if (($blnMandatory && empty($objWidget->value)) || !\is_array($objWidget->value)) {
                     $blnError = true;
                     $objWidget->addError($this->translator->trans('ERR.APTMMC-fillInPetInput'));
                 }
