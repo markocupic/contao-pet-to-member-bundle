@@ -15,7 +15,7 @@ jobs:
   coding-style:
     name: Coding Style
     runs-on: ubuntu-latest
-    # if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request'
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -45,10 +45,6 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install --upgrade yamllint
           /home/runner/.local/bin/yamllint .
-
-
-
-
 
   tests:
     name: PHP ${{ matrix.php }}
