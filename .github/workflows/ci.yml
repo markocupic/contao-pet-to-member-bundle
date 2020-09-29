@@ -15,7 +15,7 @@ jobs:
   coding-style:
     name: Coding Style
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    # if: github.event_name == 'pull_request'
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
