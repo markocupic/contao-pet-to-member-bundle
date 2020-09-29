@@ -14,7 +14,6 @@ namespace Markocupic\ContaoPetToMemberBundle\Controller\FrontendModule;
 
 use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\Database;
 use Contao\MemberModel;
 use Contao\ModuleModel;
@@ -32,8 +31,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 {
-
-
     /**
      * @var TranslatorInterface
      */
@@ -49,7 +46,6 @@ class AssignPetToMemberModuleController extends AbstractFrontendModuleController
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
-
         if ($request->query->has('id') && null !== ($objModel = MemberModel::findByPk($request->query->get('id')))) {
             // Prepare serialized string from multicolumn wizard field
             // to a default array => ['dog','cat','donkey']
